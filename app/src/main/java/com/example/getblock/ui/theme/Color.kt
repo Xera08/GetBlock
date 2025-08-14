@@ -6,6 +6,12 @@ val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
 
+val BrightViolet = Color(212, 59, 212)
+val SoftIndigo = Color(103, 95, 185)
+val TealBlue = Color(32, 153, 174)
+val BrightAqua = Color(1, 232, 181)
+val MainGradient = listOf(BrightViolet, SoftIndigo, TealBlue, BrightAqua)
+
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
