@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -44,7 +46,7 @@ fun HomeScreen() {
                     brush = Brush.horizontalGradient(colors = MainGradient),
 
                     )
-                .padding(16.dp)
+                .padding(24.dp)
                 .fillMaxWidth()
         ) {
             Column() {
@@ -53,7 +55,7 @@ fun HomeScreen() {
                         text = "SOLSCAN"
                     )
                 }
-                Row() {
+                Box() {
                     Text(
                         text = "Explore Solana Blockchain"
                     )
@@ -65,7 +67,7 @@ fun HomeScreen() {
                         }
                     ) {
                         Icon(
-                            painter = painterResource(12),
+                            imageVector = Icons.Outlined.Search,
                             contentDescription = "Search button"
                         )
                     }

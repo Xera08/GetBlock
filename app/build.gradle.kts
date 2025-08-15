@@ -59,4 +59,9 @@ dependencies {
 
     implementation(libs.io.ktor.client.core)
     implementation(libs.io.ktor.client.cio)
+    implementation(libs.io.ktor.client.okhttp)
+    implementation(libs.io.ktor.client.darwin)
+    implementation(libs.io.ktor.client.content.negotiation)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 }
