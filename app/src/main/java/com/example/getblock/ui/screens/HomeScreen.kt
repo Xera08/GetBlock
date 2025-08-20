@@ -25,7 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.getblock.network.simpleCase
+import com.example.getblock.data.GetBlockRepositoryImpl
+import com.example.getblock.network.ApiService
+import com.example.getblock.network.client
 import com.example.getblock.ui.theme.MainGradient
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -34,6 +36,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeScreen() {
     val searchRequest: String by remember { mutableStateOf("") }
+    val apiService: ApiService = ApiService(client)
+    val repository: GetBlockRepositoryImpl = GetBlockRepositoryImpl(apiService)
 
     Column(
         modifier = Modifier
@@ -61,9 +65,9 @@ fun HomeScreen() {
                     )
                     IconButton(
                         onClick = {
-                            GlobalScope.launch {
-                                simpleCase()
-                            } 
+                            GlobalScope.launch() {
+                                repository.getSupply()
+                            }
                         }
                     ) {
                         Icon(
