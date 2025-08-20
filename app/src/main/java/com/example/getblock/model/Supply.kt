@@ -14,6 +14,6 @@ data class Result (
 
 @Serializable
 data class Value(
-    val circulating: Int,
-    val nonCirculating: Int
+    val circulating: Long,
+    val nonCirculating: Long
 )

@@ -15,6 +15,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,10 +35,12 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    getBlockViewModel: GetBlockViewModel
+) {
     val searchRequest: String by remember { mutableStateOf("") }
-    val apiService: ApiService = ApiService(client)
-    val repository: GetBlockRepositoryImpl = GetBlockRepositoryImpl(apiService)
+
+    val circulatingSupply = getBlockViewModel.circulatingSupply.collectAsState()
 
     Column(
         modifier = Modifier
@@ -66,7 +69,7 @@ fun HomeScreen() {
                     IconButton(
                         onClick = {
                             GlobalScope.launch() {
-                                repository.getSupply()
+                                getBlockViewModel.getSupply()
                             }
                         }
                     ) {
@@ -102,6 +105,8 @@ fun HomeScreen() {
 
         ) {
             Text(text = "SOL Supply \n ")
+            Text(
+                text = "Circulating: ${circulatingSupply.value}")
         }
 
     }

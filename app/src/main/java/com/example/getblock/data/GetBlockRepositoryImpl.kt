@@ -6,7 +6,7 @@ import io.ktor.client.call.body
 
 class GetBlockRepositoryImpl (private val apiService: ApiService): GetBlockRepository {
 
-    override suspend fun getSupply(): Result<Supply> {
-        return runCatching { apiService.getSupply().body<Supply>() }
+    override suspend fun getSupply(): Supply {
+        return apiService.getSupply().body<Supply>()
     }
 }
